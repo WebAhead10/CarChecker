@@ -1,13 +1,13 @@
-let dropdown = document.getElementById("localitydropdown"); // cars names
-let dropdown2 = document.getElementById("localitydropdown1"); // cars names
+let carsMake = document.getElementById("localitydropdown"); // cars names
+let carsModel = document.getElementById("localitydropdown1"); // models names
 let defaultOption = document.createElement("option");
 let defaultOption1 = document.createElement("option");
 defaultOption.text = "Choose Car";
 defaultOption1.text = "Choose Model";
-dropdown.add(defaultOption);
-dropdown2.add(defaultOption1);
-dropdown2.selectedIndex = 0;
-dropdown.selectedIndex = 0;
+carsMake.add(defaultOption);
+carsModel.add(defaultOption1);
+carsModel.selectedIndex = 0;
+carsMake.selectedIndex = 0;
 
 const url = "https://private-anon-74463ab434-carsapi1.apiary-mock.com/cars";
 
@@ -34,7 +34,7 @@ fetch(url)
       carsModels.forEach((car) => {
         const option = document.createElement("option");
         option.text = car;
-        dropdown.add(option);
+        carsMake.add(option);
       });
     });
   })
@@ -64,15 +64,15 @@ var changeCat = function changeCat(firstList) {
 
           return acc;
         }, []);
-        dropdown2.innerHTML = "";
+        carsModel.innerHTML = "";
 
-        console.log(dropdown2.childNodes);
+        console.log(carsModel.childNodes);
         //adding
         models.forEach((model) => {
           // create option for relevant model
           const option2 = document.createElement("option");
           option2.text = model;
-          dropdown2.add(option2);
+          carsModel.add(option2);
         });
       });
     })
@@ -93,18 +93,14 @@ const form = document.querySelector("form");
 const output = document.querySelector("output");
 
 form.addEventListener("submit", (event) => {
-  // stop the form submitting and reloading the page
   event.preventDefault();
 
-  // clear out any previous results
   output.innerHTML = "";
 
-  // get the value of the field with name="pokemon"
   const formData = new FormData(event.target);
   const car = formData.get("locality");
   const model = formData.get("locality1");
 
-  // request that pokemon from PokeAPI
   fetch("https://private-anon-74463ab434-carsapi1.apiary-mock.com/cars")
     .then((response) => {
       if (!response.ok) throw new Error(response.status);
@@ -137,9 +133,9 @@ form.addEventListener("submit", (event) => {
     .catch((error) => {
       console.log(error);
       if (error.message === "404") {
-        output.textContent = `⚠️ Couldn't find "${name}"`;
+        output.textContent = `Couldn't find "${car}" Or ${model}`;
       } else {
-        output.textContent = "⚠️ Something went wrong";
+        output.textContent = "Something went wrong";
       }
     });
 });
