@@ -137,7 +137,7 @@ form.addEventListener("submit", (event) => {
     .catch((error) => {
       console.log(error);
       if (error.message === "404") {
-        output.textContent = `⚠️ Couldn't find "${name}"`;
+        output.textContent = `⚠️ Couldn't find "${Car}"`;
       } else {
         output.textContent = "⚠️ Something went wrong";
       }
