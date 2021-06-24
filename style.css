@@ -1,5 +1,5 @@
 body {
-  background-color: #222222;
+  background-color: #3b3a3a;
   margin: 0;
   box-sizing: border-box;
 }
@@ -8,8 +8,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 3.75vw;
-  margin: 15px;
+  padding: 0.5vw;
+  margin: 5px;
 }
 .header {
   color: #ffffff;
@@ -61,8 +61,11 @@ button:hover {
 output {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  padding: 10px;
+  padding: 0px;
   color: cornflowerblue;
+}
+div {
+  font-size: larger;
 }
