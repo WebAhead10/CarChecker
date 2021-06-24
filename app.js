@@ -45,7 +45,7 @@ fetch(url)
 var changeCat = function changeCat(firstList) {
   console.log(firstList.value);
 
-  const url = "https://private-anon-74463ab434-carsapi1.apiary-mock.com/cars";
+  // const url = "https://private-anon-74463ab434-carsapi1.apiary-mock.com/cars";
 
   fetch(url)
     .then(function (response) {
@@ -101,7 +101,7 @@ form.addEventListener("submit", (event) => {
   const car = formData.get("locality");
   const model = formData.get("locality1");
 
-  fetch("https://private-anon-74463ab434-carsapi1.apiary-mock.com/cars")
+  fetch(url)
     .then((response) => {
       if (!response.ok) throw new Error(response.status);
       return response.json();
